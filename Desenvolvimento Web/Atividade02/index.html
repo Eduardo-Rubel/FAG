@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <meta charset="UTF-8">
+    <head>
+        <title>Atividade 02</title>
+    </head>
+    <header>
+        <h1>Formulário de Cadastro</h1>
+    </header>
+    <body>
+        <main>
+            <fieldset>
+                <legend>Crie sua Conta</legend>
+                    <form>
+                        <label for="nome">Nome:</label><br>
+                        <input type="text" id="nome" name="nome" placeholder="Ex: João Silva" required><br>
+                        <label for="email">Email:</label><br>
+                        <input type="email" id="email" name="email" placeholder="Ex: Joao@pocotom.com" required><br>
+                        <label for="senha">Senha:</label><br>
+                        <input type="password" id="senha" name="senha" required minlength="8"><br>
+                            <fieldset>
+                                <legend>Selecione seu gênero</legend>
+                                <input type="radio" id="masculino" name="genero" value="Masculino" required> Masculino<br>
+                                <input type="radio" id="feminino" name="genero" value="Feminino" required> Feminino<br>
+                            </fieldset>
+                        <label for="biografia">Biografia</label><br>
+                        <textarea id="biografia" name="biografia" placeholder="Fale um pouco sobre você" rows="4" cols="30"></textarea><br>
+                        <label for="termo">Termos de uso</label><br>
+                        <input type="checkbox" id="termo" name="termo" required>Aceito os termos de uso<br>
+                        <input type="submit" value="Enviar">
+                    </form>
+                </fieldset>
+        </main>
+    </body>
+</html>
