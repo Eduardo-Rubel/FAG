@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+
+.titulo{
+    position: relative;
+    font-family: cursive;
+    color: black;
+}
+.titulo02{
+    position: relative;
+    font-family: cursive;
+    color: black;
+}
+
+.subtitulo{
+    font-family: cursive;
+    font-size: medium;
+    text-align: center;
+}
+q{
+    font-style: italic;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%; 
+}
+
+.pai{
+    background-color: chocolate;
+    width: 100vw;
+    height: 300vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.div01{
+background-color: cornflowerblue;
+    width: 800px;
+    height: 300px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.texto01{
+    text-align: center;
+    font-family: cursive;
+}
+
+.div02{
+    background-color: rgb(0, 253, 63);
+    width: 800px;
+    height: 350px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.div03{
+    background-color:blueviolet;
+    width: 800px;
+    height: 350px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.div03int{
+    width: 200px;
+    height: 30px;
+    background-color: blue;
+    position: relative;
+    left: 300px;
+    border-radius: 10px;
+}
+
+.comando{
+    color: chartreuse;
+    font-family: inherit;
+    text-align: center;
+}
+
+abbr{
+    color: aliceblue;
+}
+
+.texto02{
+    text-align: center;
+    font-family: cursive;
+}
