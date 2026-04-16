@@ -9,17 +9,67 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  static const Color _primaryColor = Color(0xFF2F6F5E);
+  static const Color _surfaceColor = Color(0xFFFFFFFF);
+  static const Color _backgroundColor = Color(0xFFF4F7F5);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Cadastro de Usuario',
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFFF2F6FF),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: _primaryColor,
+          primary: _primaryColor,
+          surface: _surfaceColor,
+        ),
+        scaffoldBackgroundColor: _backgroundColor,
+        cardColor: _surfaceColor,
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: _surfaceColor,
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 14,
+            vertical: 14,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: const BorderSide(color: Color(0xFFB7C9C2)),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: const BorderSide(color: _primaryColor, width: 1.4),
+          ),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: _primaryColor,
+            foregroundColor: Colors.white,
+            padding: const EdgeInsets.symmetric(vertical: 14),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            foregroundColor: _primaryColor,
+            side: const BorderSide(color: _primaryColor),
+            padding: const EdgeInsets.symmetric(vertical: 14),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.blue,
+          backgroundColor: _primaryColor,
           foregroundColor: Colors.white,
           centerTitle: true,
+          elevation: 0,
         ),
       ),
       home: const TelaCadastro(),

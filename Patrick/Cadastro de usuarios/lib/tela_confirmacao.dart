@@ -18,6 +18,8 @@ class TelaConfirmacao extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(title: const Text('Confirmacao')),
       body: Center(
@@ -25,78 +27,56 @@ class TelaConfirmacao extends StatelessWidget {
           padding: const EdgeInsets.all(24),
           child: SizedBox(
             width: 380,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Center(
-                  child: Text(
-                    'Dados cadastrados',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                const SizedBox(height: 24),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Nome: $nome',
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+            child: Card(
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14),
+                side: BorderSide(color: theme.colorScheme.outlineVariant),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      'Dados cadastrados',
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.headlineSmall?.copyWith(
+                        fontWeight: FontWeight.w600,
                       ),
-                      const SizedBox(height: 10),
-                      Text(
-                        'Idade: $idade',
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        'Email: $email',
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        'Sexo: $sexo',
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        'Termos aceitos: ${aceitouTermos ? 'Sim' : 'Nao'}',
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 24),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () => Navigator.pop(context),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(vertical: 16),
                     ),
-                    child: const Text('Voltar'),
-                  ),
+                    const SizedBox(height: 24),
+                    Text(
+                      'Nome: $nome',
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Text('Idade: $idade', style: const TextStyle(fontSize: 16)),
+                    const SizedBox(height: 10),
+                    Text('Email: $email', style: const TextStyle(fontSize: 16)),
+                    const SizedBox(height: 10),
+                    Text('Sexo: $sexo', style: const TextStyle(fontSize: 16)),
+                    const SizedBox(height: 10),
+                    Text(
+                      'Termos aceitos: ${aceitouTermos ? 'Sim' : 'Nao'}',
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                    const SizedBox(height: 24),
+                    ElevatedButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text('Voltar'),
+                    ),
+                    const SizedBox(height: 12),
+                    OutlinedButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text('Editar'),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 12),
-                SizedBox(
-                  width: double.infinity,
-                  child: OutlinedButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: const Text('Editar'),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ),

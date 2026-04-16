@@ -105,6 +105,8 @@ class _TelaCadastroState extends State<TelaCadastro> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(title: const Text('Cadastro de Usuario')),
       body: Center(
@@ -112,145 +114,119 @@ class _TelaCadastroState extends State<TelaCadastro> {
           padding: const EdgeInsets.all(24),
           child: SizedBox(
             width: 380,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const Text(
-                  'Preencha os campos abaixo',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 24),
-                TextField(
-                  controller: _nomeController,
-                  focusNode: _nomeFocus,
-                  textInputAction: TextInputAction.next,
-                  onSubmitted: (_) => FocusScope.of(context).requestFocus(
-                    _idadeFocus,
-                  ),
-                  decoration: InputDecoration(
-                    labelText: 'Nome',
-                    hintText: 'Digite seu nome',
-                    filled: true,
-                    fillColor: Colors.white,
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 14,
+            child: Card(
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14),
+                side: BorderSide(color: theme.colorScheme.outlineVariant),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      'Cadastro',
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.headlineSmall?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+                    const SizedBox(height: 8),
+                    Text(
+                      'Preencha os dados para continuar.',
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.bodyMedium,
                     ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-                TextField(
-                  controller: _idadeController,
-                  focusNode: _idadeFocus,
-                  keyboardType: TextInputType.number,
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  textInputAction: TextInputAction.next,
-                  onSubmitted: (_) => FocusScope.of(context).requestFocus(
-                    _emailFocus,
-                  ),
-                  decoration: InputDecoration(
-                    labelText: 'Idade',
-                    hintText: 'Digite sua idade',
-                    filled: true,
-                    fillColor: Colors.white,
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 14,
+                    const SizedBox(height: 24),
+                    TextField(
+                      controller: _nomeController,
+                      focusNode: _nomeFocus,
+                      textInputAction: TextInputAction.next,
+                      onSubmitted: (_) => FocusScope.of(context).requestFocus(
+                        _idadeFocus,
+                      ),
+                      decoration: const InputDecoration(
+                        labelText: 'Nome',
+                        hintText: 'Digite seu nome',
+                      ),
                     ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+                    const SizedBox(height: 16),
+                    TextField(
+                      controller: _idadeController,
+                      focusNode: _idadeFocus,
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      textInputAction: TextInputAction.next,
+                      onSubmitted: (_) => FocusScope.of(context).requestFocus(
+                        _emailFocus,
+                      ),
+                      decoration: const InputDecoration(
+                        labelText: 'Idade',
+                        hintText: 'Digite sua idade',
+                      ),
                     ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-                TextField(
-                  controller: _emailController,
-                  focusNode: _emailFocus,
-                  keyboardType: TextInputType.emailAddress,
-                  textInputAction: TextInputAction.done,
-                  onSubmitted: (_) => _cadastrar(),
-                  decoration: InputDecoration(
-                    labelText: 'Email',
-                    hintText: 'Digite seu email',
-                    filled: true,
-                    fillColor: Colors.white,
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 14,
+                    const SizedBox(height: 16),
+                    TextField(
+                      controller: _emailController,
+                      focusNode: _emailFocus,
+                      keyboardType: TextInputType.emailAddress,
+                      textInputAction: TextInputAction.done,
+                      onSubmitted: (_) => _cadastrar(),
+                      decoration: const InputDecoration(
+                        labelText: 'Email',
+                        hintText: 'Digite seu email',
+                      ),
                     ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+                    const SizedBox(height: 16),
+                    DropdownButtonFormField<String>(
+                      value: _sexoSelecionado,
+                      decoration: const InputDecoration(labelText: 'Sexo'),
+                      hint: const Text('Selecione o sexo'),
+                      items: const [
+                        DropdownMenuItem(
+                          value: 'Masculino',
+                          child: Text('Masculino'),
+                        ),
+                        DropdownMenuItem(
+                          value: 'Feminino',
+                          child: Text('Feminino'),
+                        ),
+                        DropdownMenuItem(value: 'Outro', child: Text('Outro')),
+                      ],
+                      onChanged: (valor) {
+                        setState(() {
+                          _sexoSelecionado = valor;
+                        });
+                      },
                     ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-                DropdownButtonFormField<String>(
-                  value: _sexoSelecionado,
-                  decoration: InputDecoration(
-                    labelText: 'Sexo',
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+                    const SizedBox(height: 12),
+                    CheckboxListTile(
+                      value: _aceitouTermos,
+                      contentPadding: EdgeInsets.zero,
+                      controlAffinity: ListTileControlAffinity.leading,
+                      title: const Text('Aceito os termos de uso'),
+                      onChanged: (valor) {
+                        setState(() {
+                          _aceitouTermos = valor ?? false;
+                        });
+                      },
                     ),
-                  ),
-                  hint: const Text('Selecione o sexo'),
-                  items: const [
-                    DropdownMenuItem(
-                      value: 'Masculino',
-                      child: Text('Masculino'),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: _cadastrar,
+                      child: const Text(
+                        'Cadastrar',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ),
-                    DropdownMenuItem(
-                      value: 'Feminino',
-                      child: Text('Feminino'),
-                    ),
-                    DropdownMenuItem(value: 'Outro', child: Text('Outro')),
                   ],
-                  onChanged: (valor) {
-                    setState(() {
-                      _sexoSelecionado = valor;
-                    });
-                  },
                 ),
-                const SizedBox(height: 16),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: CheckboxListTile(
-                    value: _aceitouTermos,
-                    controlAffinity: ListTileControlAffinity.leading,
-                    title: const Text('Aceito os termos de uso'),
-                    onChanged: (valor) {
-                      setState(() {
-                        _aceitouTermos = valor ?? false;
-                      });
-                    },
-                  ),
-                ),
-                const SizedBox(height: 28),
-                ElevatedButton(
-                  onPressed: _cadastrar,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  child: const Text(
-                    'Cadastrar',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ),
