@@ -9,9 +9,9 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static const Color _primaryColor = Color(0xFF2F6F5E);
+  static const Color _primaryColor = Colors.red;
   static const Color _surfaceColor = Color(0xFFFFFFFF);
-  static const Color _backgroundColor = Color(0xFFF4F7F5);
+  static const Color _backgroundColor = Colors.white;
 
   @override
   Widget build(BuildContext context) {
@@ -34,14 +34,14 @@ class MyApp extends StatelessWidget {
             vertical: 14,
           ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(0),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(0),
             borderSide: const BorderSide(color: Color(0xFFB7C9C2)),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(0),
             borderSide: const BorderSide(color: _primaryColor, width: 1.4),
           ),
         ),
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
             foregroundColor: Colors.white,
             padding: const EdgeInsets.symmetric(vertical: 14),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(0),
             ),
           ),
         ),
@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
             side: const BorderSide(color: _primaryColor),
             padding: const EdgeInsets.symmetric(vertical: 14),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(0),
             ),
           ),
         ),

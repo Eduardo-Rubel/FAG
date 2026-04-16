@@ -117,7 +117,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
             child: Card(
               elevation: 0,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.zero,
                 side: BorderSide(color: theme.colorScheme.outlineVariant),
               ),
               child: Padding(
