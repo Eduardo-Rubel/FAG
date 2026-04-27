@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #006912, #9c9a00, #2f7392);
+  color: white;
+}
+
+.topo {
+  height: 90px;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topo-esquerda {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.logo {
+  width: 148px;
+  height:116px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.menu {
+  display: flex;
+  gap: 24px;
+}
+
+.menu a,
+.topo-direita a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.topo-direita {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.pesquisa {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #8c92c9;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+}
+
+.btn-conta {
+  padding: 12px 20px;
+  border: 2px solid #8c92c9;
+  border-radius: 8px;
+}
+
+.principal {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.hero {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  text-align: center;
+}
+
+.hero h1 {
+  max-width: 1000px;
+  font-size: 82px;
+  line-height: 1.1;
+  border: 2px dashed rgba(255, 255, 255, 0.5);
+  padding: 16px;
+}
+
+.hero p {
+  max-width: 760px;
+  font-size: 22px;
+  line-height: 1.5;
+  border: 2px dashed rgba(255, 255, 255, 0.5);
+  padding: 14px;
+}
+
+.acoes {
+  width: 100%;
+  max-width: 1020px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.email-slot {
+  width: 330px;
+  height: 64px;
+  background-color: white;
+  color: #666;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding-left: 22px;
+  font-size: 18px;
+}
+
+.btn-verde,
+.btn-borda {
+  height: 64px;
+  padding: 0 34px;
+  border-radius: 10px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn-verde {
+  background-color: #2ea043;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-borda {
+  color: white;
+  border: 2px solid white;
+  background-color: transparent;
+}
